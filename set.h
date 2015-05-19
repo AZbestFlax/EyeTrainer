@@ -70,10 +70,15 @@ void Idle_leftright(void) {
 	glutPostRedisplay();
 }
 
+void Idle_up(void) {
+
+}
+
 void (*Idles[CountDirections])(void) = {
     Idle_left,
     Idle_right,
-    Idle_leftright
+    Idle_leftright,
+    Idle_up
 };
 
 #endif // SET_H_INCLUDED
