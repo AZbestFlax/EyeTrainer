@@ -1,0 +1,32 @@
+# depslib dependency file v1.0
+1431953451 source:d:\azbest\trainer\main.cpp
+	<iostream>
+	<windows.h>
+	<gl\glut.h>
+	<string>
+	<cstdio>
+	<ctime>
+	<cstdlib>
+	<cmath>
+	"set.h"
+
+1431945307 d:\azbest\trainer\set.h
+
+1432074319 source:g:\programist\c++\opengl\trainer\main.cpp
+	<iostream>
+	<windows.h>
+	<gl\glut.h>
+	<string>
+	<cstdio>
+	<ctime>
+	<cstdlib>
+	<cmath>
+	"set.h"
+	"global.h"
+
+1432074839 g:\programist\c++\opengl\trainer\set.h
+	<gl\glut.h>
+	"global.h"
+
+1432074767 g:\programist\c++\opengl\trainer\global.h
+
