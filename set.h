@@ -8,6 +8,7 @@ void MoveToStart_Left(void) {
     PosX = windowWidth;
     PosY = -rsize/2;
     dx=speed*0.5f;
+    dy = 0.01f;
 }
 
 void MoveToStart_Right(void) {
