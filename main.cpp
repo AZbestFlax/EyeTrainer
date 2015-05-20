@@ -22,6 +22,13 @@ void RenderScene(void) {
 	glClearColor(0.5, 0.5, 0.75, 1);
     glRectf(PosX,PosY,PosX+rsize,PosY+rsize);
     glutSwapBuffers();
+        		ddd++;
+			    if (ddd >= 10000) {
+                    current_direction++;
+                    MoveToStartPos[current_direction]();
+                    glutIdleFunc(Idles[current_direction]);
+                    ddd = 0;
+			    }
 }
 
 void Reshape(GLsizei w, GLsizei h) {
@@ -79,6 +86,28 @@ void KeyboardSpecial(int key, int x, int y) {
 				//glutMotionFunc(MouseMotion);
 				glutIdleFunc(NULL);
 			}
+        break;
+        case GLUT_KEY_F6:
+            current_direction++;
+            MoveToStartPos[current_direction]();
+            glutIdleFunc(Idles[current_direction]);
+        break;
+        case GLUT_KEY_F5:
+            current_direction--;
+            MoveToStartPos[current_direction]();
+            glutIdleFunc(Idles[current_direction]);
+        break;
+        case GLUT_KEY_F7:
+            speed -= 0.1f;
+            if (speed <= 0)
+                speed = 0.05f;
+            CalcDxDy[current_direction]();
+        break;
+        case GLUT_KEY_F8:
+            speed += 0.1f;
+            if (speed >= 10.f)
+                speed = 10.0f;
+            CalcDxDy[current_direction]();
         break;
 	}
 }
