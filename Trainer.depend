@@ -30,3 +30,21 @@
 
 1432074767 g:\programist\c++\opengl\trainer\global.h
 
+1432104472 source:p:\doc_azbest\opengl\eyetrainer\main.cpp
+	<iostream>
+	<windows.h>
+	<gl\glut.h>
+	<string>
+	<cstdio>
+	<ctime>
+	<cstdlib>
+	<cmath>
+	"set.h"
+	"global.h"
+
+1432105337 p:\doc_azbest\opengl\eyetrainer\set.h
+	<gl\glut.h>
+	"global.h"
+
+1432105349 p:\doc_azbest\opengl\eyetrainer\global.h
+

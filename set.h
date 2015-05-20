@@ -17,10 +17,17 @@ void MoveToStart_Right(void) {
     dx=speed*0.5f;
 }
 
+void MoveToStart_Up(void) {
+    PosY = -windowHeight-rsize;
+    PosX = -rsize/2;
+    dy=speed*0.5f;
+}
+
 void (*MoveToStartPos[CountDirections])(void) = {
     MoveToStart_Left,
     MoveToStart_Right,
-    MoveToStart_Right
+    MoveToStart_Right,
+    MoveToStart_Up
 };
 
 // ==================================================================
@@ -71,7 +78,18 @@ void Idle_leftright(void) {
 }
 
 void Idle_up(void) {
+	OldTick=glutGet(GLUT_ELAPSED_TIME);
 
+    if (PosY > windowHeight) {
+        MoveToStartPos[current_direction]();
+    }
+
+    PosY += dy;
+
+    if (PosY > (windowHeight+dy))
+        PosY = windowHeight-dfd;
+
+	glutPostRedisplay();
 }
 
 void (*Idles[CountDirections])(void) = {

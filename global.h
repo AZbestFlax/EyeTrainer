@@ -7,7 +7,7 @@ enum dir {Left, Right, leftright, up, down, updown, leftup, leftdown,
 
 const unsigned short int CountDirections = 18;
 
-dir current_direction = leftright;//Right;        // Спосіб руху
+dir current_direction = up;//leftright;//Right;        // Спосіб руху
 
 int WinWidth=640;		// Ширина вікна
 int WinHeight=480;		// Висота вікна
