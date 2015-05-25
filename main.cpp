@@ -18,17 +18,24 @@ void Init()				// Инициализация OpenGL
 
 void RenderScene(void) {
     glClear(GL_COLOR_BUFFER_BIT);
-    glColor3f(0.1,0.7,0.2);
-	glClearColor(0.5, 0.5, 0.75, 1);
+    glColor3f(colorPreset[colorTheme][front][0],colorPreset[colorTheme][front][1],colorPreset[colorTheme][front][2]);
+    //glColor3f(0.1,0.7,0.2);
+	glClearColor(colorPreset[colorTheme][back][0],colorPreset[colorTheme][back][1],colorPreset[colorTheme][back][2], 1);
+
     glRectf(PosX,PosY,PosX+rsize,PosY+rsize);
+
+    glColor3f(1.0,1.0,1.0);
+	if (!bTimer) {
+        glRasterPos2f(0, WinHeight/7);
+        PrintString(GLUT_BITMAP_TIMES_ROMAN_24, "F2 to start, ESC to exit");
+        glRasterPos2f(0, WinHeight/7-12);
+        PrintString(GLUT_BITMAP_TIMES_ROMAN_24, "F5/F6 to change direction");
+        glRasterPos2f(0, WinHeight/7-24);
+        PrintString(GLUT_BITMAP_TIMES_ROMAN_24, "F7/F8 to change speed");
+        glRasterPos2f(0, WinHeight/7-36);
+        PrintString(GLUT_BITMAP_TIMES_ROMAN_24, "F3/F4 to switch color themes");
+	}
     glutSwapBuffers();
-        		ddd++;
-			    if (ddd >= 10000) {
-                    current_direction++;
-                    MoveToStartPos[current_direction]();
-                    glutIdleFunc(Idles[current_direction]);
-                    ddd = 0;
-			    }
 }
 
 void Reshape(GLsizei w, GLsizei h) {
@@ -108,6 +115,12 @@ void KeyboardSpecial(int key, int x, int y) {
             if (speed >= 10.f)
                 speed = 10.0f;
             CalcDxDy[current_direction]();
+        break;
+        case GLUT_KEY_F3:
+            decrColor();
+        break;
+        case GLUT_KEY_F4:
+            incrColor();
         break;
 	}
 }
